@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta chrarset="utf-8">
+    <title>knjige.org</title>
+    <link th:href="${'/css/pocetna.css'}" rel="stylesheet"/>
+
+    <script th:href="${'/js/pocetna.js'}"></script>
+ 
+  
+ </head>
+
+ <body>
+      <h1>DOBRODOSLI NA KNJIGE.ORG!</h1>
+      
+    <div class="meni">
+      <ul>
+        
+        <li><a onclick="location.href='/registracija'">Registrujte se</a></li>
+        <li><a onclick="location.href = '/prijava'">Prijavite se</a></li>
+        <li><a onclick="location.href='/korisnici'">Svi korisnici</a></li>
+        <li><a onclick="location.href='/artikli'">Pregled artikala</a></li>
+
+         
+       
+         </ul>
+    </div>
+     
+
+   <div class="tabela">
+            <div class="red">
+                  
+                  <div class="kolona">
+                     <p><a onclick="document.getElementById('0').innerHTML= Klik1()"> Naziv:Orlovi rano lete </a></p>
+                     <div id = '0'></div>
+                     <p>Branko Copic</p>
+                     <p>500 din</p>
+
+                     <img src = "/images/orloviranolete.jpeg" width="500" height="500">
+                        
+                     
+                  </div>
+
+
+                  <div class="kolona">
+                     <p><a onclick="document.getElementById('1').innerHTML= Klik2()"> Naziv:Bela griva </a></p>
+                     <div id = '1'></div>
+                             
+                                 <p>Autor: Rene Gijo</p>
+                                 <p>Cena: 350 din</p>
+                                 <img src="/images/belagriva.jpeg" width="500" height="500">
+                  </div>
+
+               <div class="kolona">
+                  <p><a onclick="document.getElementById('2').innerHTML= Klik3()"> Naziv:Pokondirena tikva </a></p>
+                  <div id = '2'></div>
+
+                            <p>Autor: Jovan Sterija Popovic</p>
+                            <p>Cena: 350 din</p>
+                            <img src="/images/pokondirenatikva.jpeg" width="500" height="500">
+               </div>
+               
+
+
+         </div>   
+
+
+
+         <div class="red">
+                  
+               <div class="kolona">
+                  <p><a onclick="document.getElementById('3').innerHTML= Klik4()"> Naziv:Hajduci </a></p>
+                  <div id = '3'></div>
+                          <p>Autor: Branislav Nusic</p>
+                          <p>Cena: 350 din</p>
+                          <img src="/images/hajduci2.jpeg" width="500" height="500">
+                     
+               </div>
+
+
+               <div class="kolona">
+                  <p><a onclick="document.getElementById('4').innerHTML= Klik5()"> Naziv:Robinzon Kruso </a></p>
+                  <div id = '4'></div>
+                           <p>Autor: Danijel Defo</p>
+                           <p>Cena: 350 din</p>
+                           <img src="/images/robinsonkruso.jpeg" width="500" height="500">
+               </div>
+
+            <div class="kolona">
+               <p><a onclick="document.getElementById('5').innerHTML= Klik6()"> Naziv:Alisa u zemlji cuda </a></p>
+               <div id = '5'></div>
+                              <p>Autor: Luis Kerol</p>
+                              <p>Cena: 350 din</p>
+                              <img src="/images/alisa.jpeg" width="500" height="500">
+            </div>
+
+
+      </div>   
+
+
+      <div class="red">
+                  
+            <div class="kolona">
+               <p><a onclick="document.getElementById('6').innerHTML= Klik7()"> Naziv:Pop Cira i pop Spira</a></p>
+               <div id = '6'></div>
+                           <p>Autor: Stevan Sremac</p>
+                           <p>Cena: 350 din</p>
+                          <img src="/images/popcira.jpeg" width="500" height="500">
+                  
+            </div>
+
+
+            <div class="kolona">
+               <p><a onclick="document.getElementById('7').innerHTML= Klik8()"> Naziv:Sumnjivo lice</a></p>
+               <div id = '7'></div>
+                       <p>Autor: Branislav Nusic</p>
+                       <p>Cena: 350 din</p>
+                       <img src="/images/sumnjivolice.jpeg" width="500" height="500">
+            </div>
+
+         <div class="kolona">
+            <p><a onclick="document.getElementById('8').innerHTML= Klik9()"> Naziv:Sesir profesora Koste Vujica</a></p>
+            <div id = '8'></div>
+                       <p>Autor: Milovan Vitezovic</p>
+                       <p>Cena: 350 din</p>
+                       <img src="/images/sesir.jpeg" width="500" height="500">
+         </div>
+
+
+   </div>   
+   
+
+   </div>
+
+ </body>
+
+</html>

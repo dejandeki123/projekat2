@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Korisnik</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/css/employees.css}"/>
+</head>
+<body>
+<h2 style="text-align:center">Profil korisnika</h2>
+<div class="card">
+    <img alt="korisnik" src="/images/user.png"/>
+    <h1 th:text="${korisnik.ime}"></h1>
+    <h1 th:text="${korisnik.prezime}"></h1>
+    <p class="title" th:text="${korisnik.uloga}"></p>
+    <br>
+</div>
+<button onclick="location.href = '/'">Pocetna strana</button>
+
+</body>
+</html>

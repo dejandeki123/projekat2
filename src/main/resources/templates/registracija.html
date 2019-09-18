@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrujte se</title>
+
+</head>
+
+<body>
+       
+        <form th:action="@{/registracijaProvera}" th:object="${korisnik}" method="post">
+     
+        </br>
+           <label for="korisnickoIme">Korisnicko ime:</label>
+           <input id="korisnickoIme" type="text" required="required"></br></br>
+
+           <label for="lozinka">Lozinka:</label>
+            <input id="lozinka" type="password" required="required" />
+        </br>
+        <label for="ime">Ime:</label>
+        <input id="ime" type="text" required="required" />
+    </br>
+    <label for="prezime">Prezime:</label>
+    <input id="prezime" type="text" required="required" />
+    </br>
+
+    <label for="email">Email:</label>
+    <input id="email" type="text" required="required" />
+</br>
+    <label for="adresa">Adresa:</label>
+    <input id="adresa" type="text" required="required" />
+</br>
+<select name="uloga" required="required">
+    <option value="">Izaberite ulogu</option>
+    <optgroup label="Ponudjeno:">
+        <option value="KUPAC">Kupac</option>
+        <option value="DOSTAVLJAC">Dostavljac</option>
+    </optgroup>
+</select>
+    
+           
+            <button type="submit" >Prijava</button>
+        
+      </form> 
+    
+
+</body>
+</html>

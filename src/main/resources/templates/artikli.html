@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Artikli</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/css/artikli.css}"/>
+</head>
+<body>
+
+
+<h1>Artikli</h1>
+
+<div class="padajuci">
+    <li>Odaberi kategoriju
+        <ul>
+            <a th:href="${'/domacaKnjizevnost'}"><li> Domaca knjizevnost</li></a>
+            <a th:href="${'/stranaKnjizevnost'}"><li>Strana knjizevnost</li></a>
+           
+        </ul>
+    </li>
+</div>
+    
+<br><br>
+<form  >
+    <label for="search_input">Pretraga:</label> 
+    <input name="search"id="search"></input>
+</form>
+
+<br><br>
+
+<a><button onclick="location.href='/sviArtikli'">Svi artikli</button></a>
+<a><button onclick="location.href = '/'">Pocetna strana</button></a>
+<br><br>
+
+<table id="opcije">
+    <tr>
+        <th><a th:href="${'/sortirajPoNazivu'}"><button>Sortiranje po nazivu</button></a></th>
+        <th><a th:href="${'/sortirajPoId'}"><button>Sortiranje po id-ju</button></a></th>
+        <th><a th:href="${'/sortirajPoCeni'}"><button>Sortiranje po ceni</button></a></th>
+        <th><a th:href="${'/artikliNaPopustu'}"><button>Artikli na popustu</button></a></th>
+        <th><a th:href="${'/kreirajKorpu'}"><button>Kreiraj korpu</button></a></th>
+      
+    </tr>
+</table>
+<br> 
+<table id="artikli">
+    <tr>
+        <th>Id</th>
+        <th>Naziv</th>
+        <th>Opis</th>
+        <th>Cena</th>
+        <th>Kolicina</th>
+        <th>Kategorija</th>
+        <th>Snizeno</th>
+        <th>Omiljeno</th>
+        <th>Obrisi artikle</th>
+    </tr>
+    <tr th:each="artikal : ${artikli}">
+        <td th:text="${artikal.id}"></td>
+        <td th:text="${artikal.naziv}"></td>
+        <td th:text="${artikal.opisArtikla}"></td> 
+        <td th:text="${artikal.cena}"></td>
+        <td th:text="${artikal.kolicina}"></td>
+        <td th:text="${artikal.kategorija}"></td>
+        <td th:text="${artikal.naPopustu}"></td>
+        <td th:text="${artikal.omiljeniArtikal}"></td>
+        <td><a th:href="${'/izbrisiArtikal/'+artikal.Id}">izbrisi artikal</a></td>
+    </tr>
+</table>
+
+
+
+
+
+</body>
+</html>

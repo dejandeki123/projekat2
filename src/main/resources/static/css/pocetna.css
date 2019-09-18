@@ -1,0 +1,126 @@
+
+h1 { /* podesavamo izgled naslova*/
+    text-align: center; /* pozicija teksta je center*/
+    font-style: italic;
+    background-position: center;
+    color: black;
+    padding: 6px;
+    margin: none;
+    background-repeat: round;
+  
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat; 
+    background-position: left;
+    background-size: 19%;
+    
+ }
+ 
+ 
+ body{
+    background-color: lavender; 
+    font-family: Arial;
+    
+ }
+ 
+ 
+ .meni{
+     font-size: 30px;
+     width: 100%;
+     background-color: darkorange;
+     float: left;
+     
+     
+ }
+ 
+ input{
+     float: right;
+     font-size: 20px;
+     
+     margin: 15px;
+     padding: 10px;
+     
+ 
+ }
+ 
+ 
+ 
+ ul{
+     margin: 0px;
+     padding: 0px;
+     list-style: none;
+     
+     
+ 
+ }
+ 
+ ul li{
+    padding: 20px;
+    color: white;
+    background-color: darkorange;
+    float: left;
+    opacity: .7;
+    width: 200px;
+    height: 45px;
+    line-height: 22px;
+    text-align: center;
+ }
+ 
+ ul li a{
+     display: block;
+     text-decoration: none;
+     padding: 10px;
+     text-align: center;
+    
+ }
+ 
+ ul li a:hover{
+     
+     background: red;
+     margin: 0px;
+     text-align: center;
+ 
+ }
+ 
+ ul li ul li{
+    display: none;
+    height: 70px;
+    width: 200px;
+    
+ }
+ 
+ 
+ ul li:hover ul li{
+     display: block;
+     text-align: center;
+ }
+ 
+ 
+ .tabela{
+    border-spacing: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    display: table;
+    margin: auto;
+    text-align: center;
+    font-size: 27px;
+    
+    
+    font-family: 'Franklin Gothic Medium';
+ }
+ 
+ 
+ .kolona{
+     display: table-cell;
+     border-spacing: 18px;
+ 
+ }
+ 
+ .red{
+    border-spacing: 80px;
+ }
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Prijavite se</title>
+
+</head>
+<h1>Prijava neuspesna!Molimo pokusajte ponovo!</h1> </br> </br>
+<body>
+       
+    <form th:action="@{/prijavaProvera}" th:object="${korisnik}" method="post">
+     
+    </br>
+       <label for="korisnickoIme">Korisnicko ime:</label>
+       <input id="korisnickoIme" type="text" required th:field="*{korisnickoIme}"></br></br>
+
+       <label for="lozinka">Lozinka:</label>
+        <input id="lozinka" type="password" required th:field="*{lozinka}" />
+    </br>
+        <button type="submit" >Prijava</button>
+    
+  </form> 
+    
+
+</body>
+</html>

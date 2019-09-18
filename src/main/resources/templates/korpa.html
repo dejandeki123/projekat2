@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Korpa</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/css/artikli.css}"/>
+</head>
+<body>
+
+
+<h1>Korpa</h1>
+
+
+    
+
+
+
+<br><br>
+
+
+
+
+<br> 
+<table id="artikli">
+    <tr>
+        <th>Id</th>
+        <th>Naziv</th>
+        <th>Opis</th>
+        <th>Cena</th>
+        <th>Kolicina</th>
+        <th>Kategorija</th>
+        <th>Snizeno</th>
+        <th>Omiljeno</th>
+        <th>Obrisi artikle</th>
+    </tr>
+    <tr th:each="artikal : ${artikli}">
+        <td th:text="${artikal.id}"></td>
+        <td th:text="${artikal.naziv}"></td>
+        <td th:text="${artikal.opisArtikla}"></td> 
+        <td th:text="${artikal.cena}"></td>
+        <td th:text="${artikal.kolicina}"></td>
+        <td th:text="${artikal.kategorija}"></td>
+        <td th:text="${artikal.naPopustu}"></td>
+        <td th:text="${artikal.omiljeniArtikal}"></td>
+
+    </tr>
+</table>
+
+
+
+
+
+</body>
+</html>
