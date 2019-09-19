@@ -105,6 +105,15 @@ public void izbrisi_artikal(Long id) {
     this.artikalRepository.deleteById(id);
 }
     
+@Override
+public Artikal pronadji_artikal_po_id(Long id) {
+       Artikal omiljeni=new Artikal();
+       
+       omiljeni=this.artikalRepository.findOneById(id);
+       return omiljeni;
+    
+}
+
 
 
 }

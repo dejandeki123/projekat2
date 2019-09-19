@@ -18,6 +18,9 @@ public interface ArtikalService {
     List<Artikal> ispisArtikalaNaPopustu();
 
     void izbrisi_artikal(Long id);
+
+    Artikal pronadji_artikal_po_id(Long id);
+
   
    // List<Artikal> pretraziPoKategorija(String kategorija);
 

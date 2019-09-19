@@ -117,9 +117,32 @@ public class ArtikalController {
 public String izbrisi_artikal(@PathVariable("id") Long id) {
     this.artikalService.izbrisi_artikal(id);
 
-    // redirekcija na tabelu koja prikazuje sve zaposlene
+    
     return "redirect:/artikli";
 }
+
+List<Artikal> lista_omiljenih=new ArrayList<>();
+
+@GetMapping("/dodaj_u_omiljene/{id}")
+public String spisak_omiljenih(@PathVariable("id") Long id,Model model) {
+
+    Artikal omiljeni=this.artikalService.pronadji_artikal_po_id(id);
+    lista_omiljenih.add(omiljeni);
+
+    model.addAttribute("artikli", lista_omiljenih);
+    
+    return "omiljeniArtikli.html";
+}
+
+@GetMapping("/omiljeniArtikli") 
+public String pogledajOmiljene(Model model) {
+
+    List<Artikal> lista=lista_omiljenih;
+   
+    model.addAttribute("artikli",lista);
+    return "omiljeniArtikli.html";
+}
+
 
 
 

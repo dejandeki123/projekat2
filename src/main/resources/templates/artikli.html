@@ -39,7 +39,8 @@
         <th><a th:href="${'/sortirajPoCeni'}"><button>Sortiranje po ceni</button></a></th>
         <th><a th:href="${'/artikliNaPopustu'}"><button>Artikli na popustu</button></a></th>
         <th><a th:href="${'/kreirajKorpu'}"><button>Kreiraj korpu</button></a></th>
-      
+        <th><a th:href="${'/omiljeniArtikli'}"><button>Pogledaj omiljene artikle</button></a></th>
+
     </tr>
 </table>
 <br> 
@@ -54,6 +55,7 @@
         <th>Snizeno</th>
         <th>Omiljeno</th>
         <th>Obrisi artikle</th>
+        <th>Omiljeni</th>
     </tr>
     <tr th:each="artikal : ${artikli}">
         <td th:text="${artikal.id}"></td>
@@ -64,7 +66,9 @@
         <td th:text="${artikal.kategorija}"></td>
         <td th:text="${artikal.naPopustu}"></td>
         <td th:text="${artikal.omiljeniArtikal}"></td>
-        <td><a th:href="${'/izbrisiArtikal/'+artikal.Id}">izbrisi artikal</a></td>
+        <td><a th:href="${'/izbrisiArtikal/'+artikal.id}">izbrisi artikal</a></td>
+        <td><a th:href="${'/dodaj_u_omiljene/'+artikal.Id}">Omiljeno</a></td>
+
     </tr>
 </table>
 
