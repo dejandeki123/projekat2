@@ -21,9 +21,10 @@
 </div>
     
 <br><br>
-<form  >
-    <label for="search_input">Pretraga:</label> 
-    <input name="search"id="search"></input>
+<form th:action="@{/pretraga}" th:object="${artikal}" method="POST">
+    <input type="text" id="naziv" name="naziv" placeholder="Naziv artikle"/>
+    <input type="text" id="kategorija" name="kategorija" placeholder="Kategorija artikle"/>
+    <input type="submit" />
 </form>
 
 <br><br>
@@ -56,6 +57,7 @@
         <th>Omiljeno</th>
         <th>Obrisi artikle</th>
         <th>Omiljeni</th>
+        <th>Korpa</th>
     </tr>
     <tr th:each="artikal : ${artikli}">
         <td th:text="${artikal.id}"></td>
@@ -67,7 +69,8 @@
         <td th:text="${artikal.naPopustu}"></td>
         <td th:text="${artikal.omiljeniArtikal}"></td>
         <td><a th:href="${'/izbrisiArtikal/'+artikal.id}">izbrisi artikal</a></td>
-        <td><a th:href="${'/dodaj_u_omiljene/'+artikal.Id}">Omiljeno</a></td>
+        <td><a th:href="${'/dodaj_u_omiljene/'+artikal.id}">Omiljeno</a></td>
+        <td><a th:href="${'/dodaj_u_korpu/'+artikal.id}">dodaj u korpu</a></td>
 
     </tr>
 </table>

@@ -25,7 +25,8 @@ public class KorisnikController
     
     @GetMapping("/")
     public String dobrodosliNaPocetnu() {
-        return "pocetna.html";
+        return "pocetna_neprijavljeni.html";
+
     }
 
     @GetMapping("/prijava")
@@ -39,17 +40,12 @@ public class KorisnikController
 
     @PostMapping("/prijavaProvera")
     public String proveriPrijavu(@Valid @ModelAttribute Korisnik korisnik, BindingResult errors, Model model) {
-         
-      if(!(this.korisnikService.proveriPrijavu(korisnik.getKorisnickoIme(),korisnik.getLozinka()))) {
-           return "neuspelaPrijava.html";
-      }
+         Korisnik k = this.korisnikService.pronadji_korisnika_za_registraciju(korisnik.getKorisnickoIme());
+         if(k.getLozinka().equals(korisnik.getLozinka())){
+            model.addAttribute("korisnik", k);
+            return "pocetna.html";
+         } else return "neuspelaPrijava.html";
 
-      else {
-
-        Korisnik prijavljeniKorisnik=new Korisnik();
-        model.addAttribute("korisnik", prijavljeniKorisnik);
-           return "uspesnaPrijava.html";
-      }
     }
 
       

@@ -20,6 +20,7 @@ public interface ArtikalRepository extends JpaRepository<Artikal, Long> {
 
     Artikal findOneById(Long id);
    
+    List<Artikal> findAllByNaziv(String naziv);
 
 //    void deleteByID(Long id);
 

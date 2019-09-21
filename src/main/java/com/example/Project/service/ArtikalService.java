@@ -24,6 +24,6 @@ public interface ArtikalService {
   
    // List<Artikal> pretraziPoKategorija(String kategorija);
 
-  //  List<Artikal> pretraga_artikala(String unos);
+    List<Artikal> pretraga_artikala(Artikal artikal);
 
 }

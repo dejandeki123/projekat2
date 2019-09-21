@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.Project.entity.Artikal;
-import com.example.Project.entity.Pretraga;
 import com.example.Project.service.ArtikalService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -20,11 +21,13 @@ public class ArtikalController {
     @Autowired
     private ArtikalService artikalService;
 
-    @GetMapping("/artikli") 
+    @GetMapping("/artikli_neprijavljeni_korisnici") 
     public String ArtikleIspisi(Model model) {
         model.addAttribute("artikli",this.artikalService.lista_svih_artikala());
-        return "artikli.html";
+        return "artikli_neprijavljeni.html";
     }
+
+
 
     @GetMapping("/domacaKnjizevnost")
     public String ispisArtikalaDomacaKnjizevnost(Model model) {
@@ -32,9 +35,8 @@ public class ArtikalController {
        
         artikliDomaceKnjizevnosti=this.artikalService.ispisArtikalaPoKategoriji("domacaKnjizevnost");
         model.addAttribute("artikli", artikliDomaceKnjizevnosti);
-        model.addAttribute("nova_pretraga", new Pretraga());
 
-        return "artikli.html";
+        return "artikli_neprijavljeni.html";
 
     }
 
@@ -44,9 +46,8 @@ public class ArtikalController {
        
         artikliStraneKnjizevnosti=this.artikalService.ispisArtikalaPoKategoriji("stranaKnjizevnost");
         model.addAttribute("artikli", artikliStraneKnjizevnosti);
-        model.addAttribute("nova_pretraga", new Pretraga());
 
-        return "artikli.html";
+        return "artikli_neprijavljeni.html";
 
     }
 
@@ -54,32 +55,29 @@ public class ArtikalController {
     public String vrati_se_na_sve_artikle(Model model) {
 
         model.addAttribute("artikli",this.artikalService.lista_svih_artikala());
-        model.addAttribute("nova_pretraga", new Pretraga());
 
-        return "artikli.html";
+        return "artikli_neprijavljeni.html";
     }
 
     @GetMapping("/sortirajPoNazivu")
     public String sortiranje_po_imenu(Model model) {
         model.addAttribute("artikli", this.artikalService.sortiranjePoNazivu());
-        model.addAttribute("nova_pretraga", new Pretraga());
 
-        return "artikli.html";
+        return "artikli_neprijavljeni.html";
     }
 
     @GetMapping("/sortirajPoId")
     public String sortiranje_po_id(Model model) {
         model.addAttribute("artikli", this.artikalService.sortiranjePoId());
-        model.addAttribute("nova_pretraga", new Pretraga());
 
-        return "artikli.html";
+        return "artikli_neprijavljeni.html";
     }
 
     @GetMapping("/sortirajPoCeni")
     public String sortiranje_po_ceni(Model model) {
         model.addAttribute("artikli", this.artikalService.sortiranjePoCeni());
     
-        return "artikli.html";
+        return "artikli_neprijavljeni.html";
     }
 
 
@@ -89,29 +87,19 @@ public class ArtikalController {
        
         artikli_na_popustu=this.artikalService.ispisArtikalaNaPopustu();
         model.addAttribute("artikli", artikli_na_popustu);
-        model.addAttribute("nova_pretraga", new Pretraga());
 
-        return "artikli.html";
+        return "artikli_neprijavljeni.html";
 
     }
-/*
-    @PostMapping("/pretraga_artikala")
-    public String pretrazeni_artikli(@ModelAttribute Pretraga prettraga, Model model) {
-         List<Artikal> oni_koji_odgovaraju_pretrazi=new ArrayList<>();
-    
-         String pretraga=prettraga.getPretrazeno();
-         System.out.println(pretraga);
-         oni_koji_odgovaraju_pretrazi=this.artikalService.pretraga_artikala(pretraga);
 
-         model.addAttribute("artikli", oni_koji_odgovaraju_pretrazi);
-         model.addAttribute("nova_pretraga", new Pretraga());
-         
-          return "artikli.html"; 
-        
-        
+    @PostMapping("/pretraga")
+    public String pretrazeni_artikli(Model model, @ModelAttribute("artikal") Artikal artikal1) {
+         List<Artikal> artikli = this.artikalService.pretraga_artikala(artikal1);
+         model.addAttribute("artikli", artikli);
+          return "artikli_neprijavljeni.html"; 
         
         }
-*/
+
 
 @GetMapping("/izbrisiArtikal/{id}")
 public String izbrisi_artikal(@PathVariable("id") Long id) {
