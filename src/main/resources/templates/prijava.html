@@ -8,14 +8,14 @@
 
 <body>
        
-        <form th:action="@{/prijavaProvera}" th:object="${korisnik}" method="post">
+        <form th:action="@{/prijavaProvera}"  method="post">
      
         </br>
            <label for="korisnickoIme">Korisnicko ime:</label>
-           <input id="korisnickoIme" type="text" required th:field="*{korisnickoIme}"></br></br>
+           <input id="korisnickoIme" type="text" name="korisnickoIme" required/></br></br>
 
            <label for="lozinka">Lozinka:</label>
-            <input id="lozinka" type="password" required th:field="*{lozinka}" />
+            <input id="lozinka" type="password" name="lozinka" required/>
         </br>
             <button type="submit" >Prijava</button>
         

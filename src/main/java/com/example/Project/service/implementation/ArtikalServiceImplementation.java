@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.Project.entity.Artikal;
+import com.example.Project.entity.Korpa;
 import com.example.Project.repository.ArtikalRepository;
 import com.example.Project.service.ArtikalService;
 
@@ -92,6 +93,25 @@ public class ArtikalServiceImplementation implements ArtikalService {
         }
  
         return trazeni_artikli;
+    }
+
+    @Override
+    public void ubacivanje_artikla_u_korpu(Korpa korpa,Artikal artikal) {
+        artikal.setKorpa(korpa);
+        this.artikalRepository.save(artikal);
+    }
+
+    @Override 
+    public List<Artikal> dobavi_one_u_korpi(Korpa korpa) {
+        List<Artikal> dobavljeni=this.artikalRepository.findAllByKorpa(korpa);
+        return dobavljeni;
+    }
+
+    @Override
+    public Artikal kreiraj_artikal(Artikal artikal){
+        
+        Artikal novi_artikal=this.artikalRepository.save(artikal);
+        return novi_artikal;
     }
 
 }

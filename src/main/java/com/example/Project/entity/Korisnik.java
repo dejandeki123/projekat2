@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,9 +15,7 @@ import javax.persistence.Table;
 public class Korisnik implements Serializable {
 
 
-    /**
-     *
-     */
+    
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -36,7 +35,7 @@ public class Korisnik implements Serializable {
     private String prezime;
 
     @Column(name="uloga")
-    private Uloga uloga;
+    private String uloga;
 
     @Column(name="kontakttelefon")
     private int kontaktTelefon;
@@ -46,6 +45,12 @@ public class Korisnik implements Serializable {
 
     @Column(name="adresa")
     private String adresa;
+
+    @Column(name="prijavljeni_korisnik")
+    private Boolean prijavljeni_korisnik;
+
+    @OneToOne(mappedBy="korisnik")
+    private  Korpa potrosacka_korpa;
 
     public Long getId() {
         return id;
@@ -87,11 +92,11 @@ public class Korisnik implements Serializable {
         this.prezime=prezime;
     }
 
-    public Uloga getUloga() {
+    public String getUloga() {
         return uloga;
     }
 
-    public void setUloga(Uloga uloga) {
+    public void setUloga(String uloga) {
         this.uloga=uloga;
     }
     
@@ -119,21 +124,22 @@ public class Korisnik implements Serializable {
         this.adresa=adresa;
     }
 
-    public Korisnik() {
-
+    public Boolean isPrijavljen() {
+        return prijavljeni_korisnik;
     }
 
-    public Korisnik(Long id,String korisnickoIme,String lozinka,String ime,String prezime,Uloga uloga,int telefon,String email,String adresa){
-        this.id=id;
-        this.korisnickoIme=korisnickoIme;
-        this.lozinka=lozinka;
-        this.ime=ime;
-        this.prezime=prezime;
-        this.uloga=uloga;
-        this.email=email;
-        this.kontaktTelefon=telefon;
-        this.adresa=adresa;
+    public void setPrijavljen(Boolean prijavljen) {
+        this.prijavljeni_korisnik=prijavljen;
     }
+   
+    public Korpa getPotrosackaKorpa() {
+        return potrosacka_korpa;
+    }  
+
+    public void setPotrosackaKorpa(Korpa korpa){
+        this.potrosacka_korpa=korpa;
+    }
+    
   
     @Override
     public String toString() {

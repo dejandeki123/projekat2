@@ -56,5 +56,17 @@ public class KorisnikServiceImpl implements KorisnikService {
     Korisnik korisnik = this.korisnikRepository.getOne(id);
         return korisnik;
     }
+
+    @Override
+    public  Korisnik pronadji_po_korisnickom_i_lozinki(String korisnicko,String lozinka){
+        Korisnik prijavljeni=this.korisnikRepository.findOneByKorisnickoImeAndLozinka(korisnicko, lozinka);
+        return prijavljeni;
+    }
+    
+    @Override
+     public void izbrisi_korisnika(Long id){
+         this.korisnikRepository.deleteById(id);
+     }
+
     
 }

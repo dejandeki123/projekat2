@@ -49,7 +49,6 @@ public class Artikal implements Serializable {
         this.omiljeniArtikal = omiljen;
     }
 
-
     
      public Boolean getNaPopustu() {
         return naPopustu;

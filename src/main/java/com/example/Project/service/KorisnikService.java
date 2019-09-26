@@ -11,9 +11,14 @@ public interface KorisnikService {
 
      Korisnik pronadji_korisnika_za_registraciju(String korisnicko);
 
+     Korisnik pronadji_po_korisnickom_i_lozinki(String korisnicko,String lozinka);
+
      List<Korisnik> pronadji_sve_korisnike();
 
      Korisnik kreiraj_korisnika(Korisnik korisnik)throws Exception;
 
      Korisnik pronadji_jednog_korisnika_po_id(Long id);
+
+     void izbrisi_korisnika(Long id);
+
 }

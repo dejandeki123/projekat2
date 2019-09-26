@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+
 @Entity
 public class Korpa implements Serializable{
 
@@ -27,13 +28,29 @@ public class Korpa implements Serializable{
     private String datumPorudzbine;
 
     @Column(name="status")
-    private Status status;
+    private String status;
 
+    @Column(name="kupac")
+    private String kupac;
+    
     
 
     @OneToMany(mappedBy="korpa",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-    List<Artikal> spisak_kupljenih_artikala=new ArrayList<Artikal>();
+    private List<Artikal> spisak_kupljenih_artikala=new ArrayList<>();
 
+    @OneToOne
+    private Korisnik korisnik;
+
+
+
+
+    public String getKupac() {
+        return kupac;
+    }
+
+    public void setKupac(String kupac) {
+        this.kupac=kupac;
+    }
     
     public Long getId() {
         return id;
@@ -59,13 +76,22 @@ public class Korpa implements Serializable{
         this.datumPorudzbine=datum;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status=status;
     }
+
+    public Korisnik getKorisnik() {
+        return korisnik;
+    }
+
+    public void setKorisnik(Korisnik korisnik) {
+        this.korisnik=korisnik;
+    }
+
 
 
     @Override
